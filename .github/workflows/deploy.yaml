@@ -54,10 +54,13 @@ jobs:
           with:
             name: build-artifacts
             path: dist
-        - name: Deploy to server
-          run: version --prod --token=$VERSION_TOKEN
+        - name: Install Vercel CLI
+          run: npm install -g vercel
+
+        - name: Deploy to Vercel
+          run: vercel --prod --token=$VERCEL_TOKEN --cwd=dist
           env:
-            VERSION_TOKEN: ${{ secrets.VERSION_TOKEN }}
+            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         
           
         
