@@ -55,7 +55,9 @@ jobs:
             name: build-artifacts
             path: dist
         - name: Deploy to server
-          run: echo "Deploying to server..."
+          run: version --prod --token=$VERSION_TOKEN
+          env:
+            VERSION_TOKEN: ${{ secrets.VERSION_TOKEN }}
         
           
         
