@@ -58,9 +58,9 @@ jobs:
           run: npm install -g vercel
 
         - name: Deploy to Vercel
-          run: vercel --main --token=$VERCEL_TOKEN --cwd=dist
+          run: vercel --prod --token=$CICD --cwd=dist
           env:
-            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+            VERCEL_TOKEN: ${{ secrets.CICD }}
         
           
         
